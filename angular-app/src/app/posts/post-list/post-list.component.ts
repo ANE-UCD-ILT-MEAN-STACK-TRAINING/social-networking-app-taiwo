@@ -13,7 +13,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   private postSubscription : Subscription;
   @Input() posts: Post[] = []
   ngOnInit(): void {
-    this.posts = this.postsService.getPosts();
+    this.postsService.getPosts();
     this.postSubscription =  this.postsService.getPostUpdateListener()
     .subscribe((postsReceived: Post[])=> {
         this.posts = postsReceived;
